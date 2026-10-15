@@ -1,0 +1,42 @@
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE and system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+secrets/
+local/
+
+# Temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Local databases and raw datasets
+*.sqlite
+*.sqlite3
+*.db
+data/raw/
+data/private/
+
+# Large historical run outputs
+05_results/
+results/raw_runs/
+
+# Local temporary models
+models/tmp/
+checkpoints/tmp/

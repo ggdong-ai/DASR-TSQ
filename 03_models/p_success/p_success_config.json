@@ -1,0 +1,165 @@
+{
+  "purpose": "Train P_success prior guidance network for TSQ-MCTS using labels derived from the frozen Step 08-11 scoring function.",
+  "important_note": "P_success is a search prior, not an independent activity oracle and not a replacement for final_reward.",
+  "input_datasets": {
+    "gsk3b": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\clean\\gsk3b_modeling_dataset.csv",
+      "sha256": "ce52c11bda1a3fd95a7eb86f4eef20ddf96c8134c4fdc46a23b921b10e19a48f"
+    },
+    "jnk3": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\clean\\jnk3_modeling_dataset.csv",
+      "sha256": "ec43f39543a53106c349c1b75ccd952ced42b3f289ff86933a8472859071b473"
+    }
+  },
+  "scoring_function": {
+    "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\10_fitness_function.py",
+    "sha256": "18ce8c4a2ffe2cee6b4cfc041c391dcf9dc14b0056a728c0477b780e2c37905f",
+    "metadata": {
+      "primary_profile": "activity_primary",
+      "reward_config": {
+        "profile_name": "activity_primary",
+        "activity_lower_pic50": 5.0,
+        "activity_upper_pic50": 8.0,
+        "weight_dual_activity": 0.6,
+        "weight_qed": 0.2,
+        "weight_sa": 0.2
+      },
+      "sensitivity_profiles": {
+        "activity_primary": {
+          "weight_dual_activity": 0.6,
+          "weight_qed": 0.2,
+          "weight_sa": 0.2,
+          "rationale": "Primary profile. Dual-target activity is the main objective, while QED and SA remain explicit soft constraints."
+        },
+        "activity_strict": {
+          "weight_dual_activity": 0.7,
+          "weight_qed": 0.15,
+          "weight_sa": 0.15,
+          "rationale": "Sensitivity profile with stronger pressure on dual-target activity."
+        },
+        "balanced": {
+          "weight_dual_activity": 0.5,
+          "weight_qed": 0.25,
+          "weight_sa": 0.25,
+          "rationale": "Sensitivity profile balancing activity, drug-likeness and accessibility."
+        }
+      },
+      "reward_formula": {
+        "dual_min_pic50": "min(pred_gsk3b_pic50, pred_jnk3_pic50)",
+        "dual_activity_reward": "clip((dual_min_pic50 - activity_lower_pic50) / (activity_upper_pic50 - activity_lower_pic50), 0, 1)",
+        "sa_reward": "clip((10 - SA_score) / 9, 0, 1)",
+        "final_reward": "weight_dual_activity * dual_activity_reward + weight_qed * QED + weight_sa * SA_reward"
+      },
+      "primary_reward_interpretation": "The primary profile is activity-centered because the main manuscript objective is dual-target GSK3β/JNK3 molecular core. QED and SA are retained as soft constraints.",
+      "qed_source": "RDKit QED implementation",
+      "sa_score_source": "Ertl-Schuffenhauer synthetic accessibility score",
+      "sa_module": {
+        "fpscores_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\fpscores.pkl\\myZip.pkl",
+        "sa_score_range": "1.0 easy to synthesize; 10.0 difficult to synthesize",
+        "sa_reward_formula": "SA_reward = clip((10 - SA_score) / 9, 0, 1)"
+      },
+      "oracle_predictor": {
+        "gsk3b_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_gsk3b_rf_oracle.joblib",
+        "jnk3_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_jnk3_rf_oracle.joblib",
+        "molecular_representation": {
+          "type": "Morgan bit fingerprint",
+          "radius": 3,
+          "n_bits": 1024
+        }
+      },
+      "p_success_policy": {
+        "used_in_main_pipeline": false,
+        "reason": "The legacy P_success model was trained on old combined_training_data.csv and old labels. It is not used in the main pipeline to avoid inconsistency and potential leakage. It may be redesigned later as an ablation module using current frozen data and validation."
+      }
+    }
+  },
+  "primary_success_criterion": {
+    "valid_smiles": true,
+    "dual_min_pic50_gte": 6.0,
+    "qed_gte": 0.5,
+    "sa_score_lte": 6.0,
+    "interpretation": "Operational success criterion for prior-guidance training based on interpretable raw properties from the frozen scoring function."
+  },
+  "equivalent_normalized_thresholds": {
+    "dual_activity_reward_gte": 0.3333333333333333,
+    "qed_gte": 0.5,
+    "sa_reward_gte": 0.4444444444444444,
+    "reason_for_raw_thresholds": "The primary label uses raw interpretable thresholds. Equivalent normalized thresholds are recorded for reproducibility."
+  },
+  "auxiliary_labels_saved": {
+    "strict_success_label": {
+      "dual_min_pic50_gte": 6.5,
+      "qed_gte": 0.5,
+      "sa_score_lte": 6.0
+    },
+    "success_label_reward_top20": "final_reward in the top 20% of the training-candidate table"
+  },
+  "model": {
+    "name": "P_success",
+    "type": "MLP binary classifier",
+    "input_dim": 1024,
+    "hidden_layers": [
+      512,
+      128,
+      32
+    ],
+    "dropout": [
+      0.3,
+      0.2
+    ],
+    "loss": "BCEWithLogitsLoss",
+    "optimizer": "AdamW",
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "batch_size": 64,
+    "max_epochs": 250,
+    "early_stopping_patience": 30
+  },
+  "split": {
+    "method": "Bemis-Murcko scaffold group split",
+    "test_size": 0.2,
+    "validation_size_within_dev": 0.2,
+    "random_seed": 42
+  },
+  "outputs": {
+    "model": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\p_success\\p_success_model.pt",
+    "training_dataset": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_training_dataset.csv",
+    "predictions": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_predictions.csv",
+    "metrics": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_metrics.csv",
+    "dataset_summary": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_dataset_summary.csv",
+    "training_history": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_training_history.csv",
+    "calibration_bins": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_calibration_bins.csv",
+    "config": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\p_success\\p_success_config.json"
+  },
+  "software_versions": {
+    "python": "3.14.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.9.0",
+    "rdkit": "2026.03.3",
+    "torch": "2.12.1+cpu",
+    "joblib": "1.5.3"
+  },
+  "method_references": [
+    {
+      "topic": "QED drug-likeness",
+      "doi": "10.1038/nchem.1243"
+    },
+    {
+      "topic": "Synthetic accessibility score",
+      "doi": "10.1186/1758-2946-1-8"
+    },
+    {
+      "topic": "GuacaMol molecular core benchmark",
+      "doi": "10.1021/acs.jcim.8b00839"
+    },
+    {
+      "topic": "ChemTS MCTS molecular core",
+      "doi": "10.1080/14686996.2017.1401424"
+    },
+    {
+      "topic": "REINVENT4 multi-component generative molecular design",
+      "doi": "10.1186/s13321-024-00812-5"
+    }
+  ]
+}
