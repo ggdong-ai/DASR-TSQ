@@ -1,0 +1,15 @@
+{
+  "updated_utc": "2026-09-15T12:49:02.163802+00:00",
+  "event": "run_complete",
+  "seed": 42,
+  "workers": 8,
+  "requests": 1040200,
+  "request_cap": 1040200,
+  "scientific_protocol_unchanged": true,
+  "generation": 0,
+  "generations_total": 10,
+  "native_updates_completed": 0,
+  "stop_reason": "matched_request_cap_before_next_complete_native_update",
+  "outputs_completed": true,
+  "task_completed_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\external_comparison\\matched_step28_v3_1\\mnopt_author_v1_4\\seed_42\\TASK_COMPLETED.json"
+}

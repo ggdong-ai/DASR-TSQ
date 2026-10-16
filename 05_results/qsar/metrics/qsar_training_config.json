@@ -1,0 +1,286 @@
+{
+  "purpose": "Nested cross-validation training and evaluation of single-target QSAR pIC50 regression models for GSK3β and JNK3.",
+  "molecular_representation": {
+    "type": "Morgan bit fingerprint",
+    "radius": 3,
+    "n_bits": 1024,
+    "reason": "Use the same 1024-bit radius-3 Morgan fingerprint setting as the original manuscript and data-splitting similarity audit."
+  },
+  "outer_cv": {
+    "primary_evaluation": "5-fold Bemis-Murcko scaffold CV",
+    "secondary_evaluation": "5-fold stratified random CV",
+    "outer_folds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "split_root": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv"
+  },
+  "inner_cv": {
+    "n_splits": 3,
+    "stratification": "five quantile bins of pic50_median; fallback to active_label_6_0; fallback to KFold if stratification is impossible",
+    "rule": "Inner CV uses only the outer-training data. Outer test folds are never used for hyperparameter selection."
+  },
+  "models": {
+    "random_forest": {
+      "estimator": "RandomForestRegressor(n_jobs=1, random_state=42)",
+      "param_grid": {
+        "n_estimators": [
+          300,
+          600
+        ],
+        "max_depth": [
+          null,
+          20
+        ],
+        "min_samples_leaf": [
+          1,
+          3
+        ],
+        "max_features": [
+          "sqrt"
+        ]
+      }
+    },
+    "svr_rbf": {
+      "estimator": "Pipeline(steps=[('scaler', StandardScaler()), ('model', SVR())])",
+      "param_grid": {
+        "model__C": [
+          1.0,
+          10.0,
+          100.0
+        ],
+        "model__gamma": [
+          "scale",
+          0.01
+        ],
+        "model__epsilon": [
+          0.1,
+          0.2
+        ]
+      }
+    },
+    "hist_gradient_boosting": {
+      "estimator": "HistGradientBoostingRegressor(early_stopping=True, n_iter_no_change=20,\n                              random_state=42)",
+      "param_grid": {
+        "learning_rate": [
+          0.03,
+          0.06,
+          0.1
+        ],
+        "max_leaf_nodes": [
+          15,
+          31
+        ],
+        "l2_regularization": [
+          0.0,
+          0.1
+        ],
+        "max_iter": [
+          300
+        ]
+      }
+    }
+  },
+  "outputs": {
+    "fold_metrics": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\qsar\\metrics\\qsar_fold_metrics.csv",
+    "metric_summary": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\qsar\\metrics\\qsar_metric_summary.csv",
+    "best_model_candidates": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\qsar\\metrics\\qsar_best_model_candidates.csv",
+    "predictions": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\qsar\\predictions\\qsar_predictions.csv",
+    "gridsearch_results": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\qsar\\metrics\\qsar_gridsearch_results.csv",
+    "cv_models": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\qsar_cv_models"
+  },
+  "input_files": {
+    "gsk3b_scaffold_fold_1_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_1\\gsk3b_train.csv",
+      "sha256": "821bbe38e6822c594b489e35f295273c7d68ca55c6c6152e545fe246675fa231"
+    },
+    "gsk3b_scaffold_fold_1_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_1\\gsk3b_test.csv",
+      "sha256": "6644bd0df7389305550aaf175318c43b1fa3e04d29a35284458cd5a8cb5cce5e"
+    },
+    "gsk3b_scaffold_fold_2_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_2\\gsk3b_train.csv",
+      "sha256": "f3e7d547156f2799ba9e08f81afd267eca791f3d3fbf14cc5dc9819b12ec333e"
+    },
+    "gsk3b_scaffold_fold_2_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_2\\gsk3b_test.csv",
+      "sha256": "cf5f3205fa29d4daca0e0e1f0b8d435da41eef5b1874e4ce88faed66d04c1ab8"
+    },
+    "gsk3b_scaffold_fold_3_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_3\\gsk3b_train.csv",
+      "sha256": "3cb10df45a23b458939107a5449b5d00bb2d9d7c8a405f7f61e449c68990b134"
+    },
+    "gsk3b_scaffold_fold_3_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_3\\gsk3b_test.csv",
+      "sha256": "d4f0f13ed3ba8cd177c731a313701a8de5fdedcbb31bd8993e470685b3b0e872"
+    },
+    "gsk3b_scaffold_fold_4_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_4\\gsk3b_train.csv",
+      "sha256": "37f23700a69dcce62dca24fbdc856a092493e5ec900e2704f49047c7c0199a51"
+    },
+    "gsk3b_scaffold_fold_4_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_4\\gsk3b_test.csv",
+      "sha256": "0a3f7a0344b5e8559df1ab9ba68fa7349f414323a4aed00aaab63c9946b2d84a"
+    },
+    "gsk3b_scaffold_fold_5_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_5\\gsk3b_train.csv",
+      "sha256": "402d3dc4a60f00fc3c3a92b28f3070d15344299653ba4b22e0ea9915789c7796"
+    },
+    "gsk3b_scaffold_fold_5_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_5\\gsk3b_test.csv",
+      "sha256": "ad45e7b919deba28615425c2ca56dd19aea0d85a08b664e46d4666bef239e19a"
+    },
+    "gsk3b_random_fold_1_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_1\\gsk3b_train.csv",
+      "sha256": "0ac36a145917163c3c24fb193d52b81e8fb68ae49f9651eafb6fb25c9520c111"
+    },
+    "gsk3b_random_fold_1_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_1\\gsk3b_test.csv",
+      "sha256": "796e12d38e58d3b6515ac18ffc2748e159422daedbac9b2abae6579c85df681b"
+    },
+    "gsk3b_random_fold_2_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_2\\gsk3b_train.csv",
+      "sha256": "5f1d8d3ef9827ab8fd539529835fc9ca4d7f438735afba31b287df484b4bf070"
+    },
+    "gsk3b_random_fold_2_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_2\\gsk3b_test.csv",
+      "sha256": "a8ff5bbb5e74fd23a65a617568a4b0dc86a0c1f0d5c6234a9a352d4c6f913c4a"
+    },
+    "gsk3b_random_fold_3_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_3\\gsk3b_train.csv",
+      "sha256": "50b5403e1770921e218e6fabdcefe23294435e6fc6e69d606058f673ccb1c31d"
+    },
+    "gsk3b_random_fold_3_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_3\\gsk3b_test.csv",
+      "sha256": "eba12ee9909f117c5b4fe73f49a55f73fba6f08a07191799ad29a6ac3712168b"
+    },
+    "gsk3b_random_fold_4_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_4\\gsk3b_train.csv",
+      "sha256": "c1290505f137e58fae3ff270702c2a9ff76002a53bd6874c89b2606c5b083103"
+    },
+    "gsk3b_random_fold_4_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_4\\gsk3b_test.csv",
+      "sha256": "e72371643b46aa5d63914f3f90b0bbe04c6df8bf9e7005b5b94eaa45c7ce33d5"
+    },
+    "gsk3b_random_fold_5_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_5\\gsk3b_train.csv",
+      "sha256": "43d639c6defb80ed6e1f4347e45baf6466c2edf0eb9d8e7abfdb92013cb4959c"
+    },
+    "gsk3b_random_fold_5_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_5\\gsk3b_test.csv",
+      "sha256": "2200d2e760c654d1b0d9bd1386d4eb642f9181fbc93c938857eb65f652d7ec28"
+    },
+    "jnk3_scaffold_fold_1_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_1\\jnk3_train.csv",
+      "sha256": "dceaab27404faea2e9d21f9343b65e7dec8828851114f8bed7cc6d39de44e06e"
+    },
+    "jnk3_scaffold_fold_1_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_1\\jnk3_test.csv",
+      "sha256": "a577d3515647bc8495ef4d384b381edc4c518656af19e0a9ecf3afa5563c5dd0"
+    },
+    "jnk3_scaffold_fold_2_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_2\\jnk3_train.csv",
+      "sha256": "592a190fddbd8585bd7c99cdcecd5e1f1a8167cfa4bb3376ad13164799f410cc"
+    },
+    "jnk3_scaffold_fold_2_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_2\\jnk3_test.csv",
+      "sha256": "9ee4cc3720762b9cbc8d1779107cd364b6d0467fb3bcdb0dc761adf5aa2403c2"
+    },
+    "jnk3_scaffold_fold_3_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_3\\jnk3_train.csv",
+      "sha256": "ffa554143a30a2ef0b2e9c38369e304f67f4b9d18f3d92e4963a82baabe6609e"
+    },
+    "jnk3_scaffold_fold_3_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_3\\jnk3_test.csv",
+      "sha256": "36dbab600b4b652fc8e88b810227e375f03165dc28cb0a99fa0303c7cd52a229"
+    },
+    "jnk3_scaffold_fold_4_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_4\\jnk3_train.csv",
+      "sha256": "eb811da40d26e3ed42a45899cb4939f65a66dc9f9b97fe1932e9579c7e2f809b"
+    },
+    "jnk3_scaffold_fold_4_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_4\\jnk3_test.csv",
+      "sha256": "cb529f364fc475104abe19bc6ab2ea40b07a47f8cfea228da05756faa1696e2a"
+    },
+    "jnk3_scaffold_fold_5_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_5\\jnk3_train.csv",
+      "sha256": "69f976bf9dc2065be958a370a55ac7cbde04a92f13216a3bec1ea131dfb93ed0"
+    },
+    "jnk3_scaffold_fold_5_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\scaffold\\fold_5\\jnk3_test.csv",
+      "sha256": "82c657e18c58c5aec7ccc4d798cb9f8d7703fed58ad412bff069cbd94b3512f7"
+    },
+    "jnk3_random_fold_1_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_1\\jnk3_train.csv",
+      "sha256": "3603755a7765eafb3292753268b2c8aaa59b90daf496d58d0a7f02ec9ab11c80"
+    },
+    "jnk3_random_fold_1_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_1\\jnk3_test.csv",
+      "sha256": "009e81d75842b576321f291b83c200cf772db48c079cfa60cd856be9475f99d3"
+    },
+    "jnk3_random_fold_2_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_2\\jnk3_train.csv",
+      "sha256": "6ce8b6c72d056cfd71b43435903398449e17684b593a4900e7ac59db03f232ff"
+    },
+    "jnk3_random_fold_2_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_2\\jnk3_test.csv",
+      "sha256": "344fb5ac1bd38a539b057d0abe6ae4fe3d3f1f0be9bca39a79893b98d61a5425"
+    },
+    "jnk3_random_fold_3_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_3\\jnk3_train.csv",
+      "sha256": "85fdb2723333dd20302d20a92fc3b8fd4ff9320ecdf280c996bead293e6f164f"
+    },
+    "jnk3_random_fold_3_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_3\\jnk3_test.csv",
+      "sha256": "1f91de502f496fcf126dfbf4aebeb0d850265fac87c715e581e0638f61b4e3ae"
+    },
+    "jnk3_random_fold_4_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_4\\jnk3_train.csv",
+      "sha256": "5090011b1f2b42a06575f94d8516276e7c43194a6b1a56eb895b1a4a5570ff44"
+    },
+    "jnk3_random_fold_4_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_4\\jnk3_test.csv",
+      "sha256": "f0cd9c09c968ec7df64e1dfe05f639430a3202c3e0cae4dafe5ba3b880ef090f"
+    },
+    "jnk3_random_fold_5_train": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_5\\jnk3_train.csv",
+      "sha256": "ad011339aa8db18310639baa602183420fa1acc0044791ba7778734f01411ce7"
+    },
+    "jnk3_random_fold_5_test": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\splits\\paper_cv\\random\\fold_5\\jnk3_test.csv",
+      "sha256": "fcd7e68223ea28b62637112517eeb0e7d2e9122aeb6f41ccea09f6e2fb93f26e"
+    }
+  },
+  "software_versions": {
+    "python": "3.14.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.9.0",
+    "rdkit": "2026.03.3",
+    "joblib": "1.5.3"
+  },
+  "method_references": [
+    {
+      "topic": "OECD QSAR validation principles"
+    },
+    {
+      "topic": "Bemis-Murcko molecular frameworks",
+      "doi": "10.1021/jm9602928"
+    },
+    {
+      "topic": "MoleculeNet molecular ML benchmark",
+      "doi": "10.1039/C7SC02664A"
+    },
+    {
+      "topic": "Molecular OOD evaluation",
+      "doi": "10.1021/acs.jcim.3c01774"
+    },
+    {
+      "topic": "Similarity leakage and DataSAIL context",
+      "doi": "10.1038/s41467-025-58606-8"
+    }
+  ]
+}

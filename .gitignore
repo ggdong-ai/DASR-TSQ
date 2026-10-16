@@ -34,7 +34,6 @@ data/raw/
 data/private/
 
 # Large historical run outputs
-05_results/
 results/raw_runs/
 
 # Local temporary models

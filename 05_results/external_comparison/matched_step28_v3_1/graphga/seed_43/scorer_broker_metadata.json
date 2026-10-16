@@ -1,0 +1,73 @@
+{
+  "scoring_function_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\10_fitness_function.py",
+  "fitness_metadata": {
+    "primary_profile": "activity_primary",
+    "reward_config": {
+      "profile_name": "activity_primary",
+      "activity_lower_pic50": 5.0,
+      "activity_upper_pic50": 8.0,
+      "weight_dual_activity": 0.6,
+      "weight_qed": 0.2,
+      "weight_sa": 0.2
+    },
+    "sensitivity_profiles": {
+      "activity_primary": {
+        "weight_dual_activity": 0.6,
+        "weight_qed": 0.2,
+        "weight_sa": 0.2,
+        "rationale": "Primary profile. Dual-target activity is the main objective, while QED and SA remain explicit soft constraints."
+      },
+      "activity_strict": {
+        "weight_dual_activity": 0.7,
+        "weight_qed": 0.15,
+        "weight_sa": 0.15,
+        "rationale": "Sensitivity profile with stronger pressure on dual-target activity."
+      },
+      "balanced": {
+        "weight_dual_activity": 0.5,
+        "weight_qed": 0.25,
+        "weight_sa": 0.25,
+        "rationale": "Sensitivity profile balancing activity, drug-likeness and accessibility."
+      }
+    },
+    "reward_formula": {
+      "dual_min_pic50": "min(pred_gsk3b_pic50, pred_jnk3_pic50)",
+      "dual_activity_reward": "clip((dual_min_pic50 - activity_lower_pic50) / (activity_upper_pic50 - activity_lower_pic50), 0, 1)",
+      "sa_reward": "clip((10 - SA_score) / 9, 0, 1)",
+      "final_reward": "weight_dual_activity * dual_activity_reward + weight_qed * QED + weight_sa * SA_reward"
+    },
+    "primary_reward_interpretation": "The primary profile is activity-centered because the main manuscript objective is dual-target GSK3β/JNK3 molecular core. QED and SA are retained as soft constraints.",
+    "qed_source": "RDKit QED implementation",
+    "sa_score_source": "Ertl-Schuffenhauer synthetic accessibility score",
+    "sa_module": {
+      "fpscores_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\fpscores.pkl\\myZip.pkl",
+      "sa_score_range": "1.0 easy to synthesize; 10.0 difficult to synthesize",
+      "sa_reward_formula": "SA_reward = clip((10 - SA_score) / 9, 0, 1)"
+    },
+    "oracle_predictor": {
+      "gsk3b_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_gsk3b_rf_oracle.joblib",
+      "jnk3_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_jnk3_rf_oracle.joblib",
+      "molecular_representation": {
+        "type": "Morgan bit fingerprint",
+        "radius": 3,
+        "n_bits": 1024
+      }
+    },
+    "p_success_policy": {
+      "used_in_main_pipeline": false,
+      "reason": "The legacy P_success model was trained on old combined_training_data.csv and old labels. It is not used in the main pipeline to avoid inconsistency and potential leakage. It may be redesigned later as an ablation module using current frozen data and validation."
+    }
+  },
+  "cache_size": 5070,
+  "external_matched_request_broker": {
+    "method": "graphga",
+    "requests": 21272,
+    "request_budget": 1040200,
+    "remaining_requests": 1018928,
+    "model_evaluations": 5070,
+    "cache_hits": 16202,
+    "invalid_requests": 0,
+    "unique_valid_evaluations": 5070,
+    "unique_request_keys_seen": 5070
+  }
+}
