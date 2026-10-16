@@ -1,0 +1,60 @@
+run_type = "staged_learning"
+device = "cuda:0"
+
+tb_logdir = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_formal/seed_45/tb"
+json_out_config = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_formal/seed_45/resolved_config.json"
+
+[parameters]
+prior_file = "D:/pycharm/project/tsq_mcts_rebuild/08_external/REINVENT4_official/priors/mol2mol_medium_similarity.prior"
+agent_file = "D:/pycharm/project/tsq_mcts_rebuild/08_external/REINVENT4_official/priors/mol2mol_medium_similarity.prior"
+summary_csv_prefix = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_formal/seed_45/reinvent4_formal"
+use_checkpoint = false
+purge_memories = false
+
+smiles_file = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_preflight/reinvent4_formal_p0.smi"
+sample_strategy = "multinomial"
+distance_threshold = 100
+batch_size = 1
+randomize_smiles = false
+isomeric_smiles = false
+temperature = 1.0
+tb_isim = false
+
+[learning_strategy]
+type = "dap"
+sigma = 128
+rate = 0.0001
+
+[diversity_filter]
+type = "IdenticalMurckoScaffold"
+bucket_size = 25
+minscore = 0.4
+minsimilarity = 0.4
+penalty_multiplier = 0.5
+
+[[stage]]
+chkpt_file = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_formal/seed_45/reinvent4_formal.chkpt"
+
+# Predeclared fixed formal horizon. 100 steps is frozen before any formal
+# REINVENT4 performance result is observed and matches the official
+# staged-learning example horizon.
+termination = "simple"
+max_score = 1.0
+min_steps = 100
+max_steps = 100
+
+[stage.scoring]
+type = "arithmetic_mean"
+parallel = 1
+
+[[stage.scoring.component]]
+[stage.scoring.component.FrozenProjectReward]
+
+[[stage.scoring.component.FrozenProjectReward.endpoint]]
+name = "Frozen project final reward"
+weight = 1.0
+
+[stage.scoring.component.FrozenProjectReward.endpoint.params]
+project_root = "D:/pycharm/project/tsq_mcts_rebuild"
+technical_request_cap = 1040200
+state_json = "D:/pycharm/project/tsq_mcts_rebuild/06_paper/experiment_records/external_benchmark_v4_reinvent4_formal/seed_45/oracle_state.json"
