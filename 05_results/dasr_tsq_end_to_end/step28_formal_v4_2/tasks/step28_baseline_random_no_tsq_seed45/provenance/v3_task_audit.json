@@ -1,0 +1,16 @@
+{
+  "passed": false,
+  "critical_errors": [
+    "local_budget_not_exact",
+    "termination_reason_mismatch"
+  ],
+  "task_id": "step28_baseline_random_no_tsq_seed45",
+  "variant": "baseline_random_no_tsq",
+  "seed": 45,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "exact_local_budget_rate": 0.9965,
+  "full_K32_rate": 0.858643513915706,
+  "more_than_B8_rate": 0.9487266121719906,
+  "elapsed_seconds": 16466.094296216965
+}

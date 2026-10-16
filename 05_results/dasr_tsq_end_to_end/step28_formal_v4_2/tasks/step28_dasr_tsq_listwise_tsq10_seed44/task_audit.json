@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_dasr_tsq_listwise_tsq10_seed44",
+  "variant": "dasr_tsq_listwise_tsq10",
+  "seed": 44,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "budget_semantics": "maximum unique oracle calls per local MCTS, including the root",
+  "exact_local_budget_rate": 0.9999,
+  "early_termination_count": 1,
+  "early_termination_rate": 0.0001,
+  "minimum_local_oracle_requests": 44,
+  "maximum_local_oracle_requests": 101,
+  "termination_reason_counts": {
+    "oracle_budget_reached": 9999,
+    "search_space_exhausted_or_stagnant": 1
+  },
+  "oracle_request_count_distribution": {
+    "44": 1,
+    "101": 9999
+  },
+  "full_K32_rate": 0.8034075499896935,
+  "more_than_B8_rate": 0.9722923744171134,
+  "elapsed_seconds": 14350.609054327011
+}

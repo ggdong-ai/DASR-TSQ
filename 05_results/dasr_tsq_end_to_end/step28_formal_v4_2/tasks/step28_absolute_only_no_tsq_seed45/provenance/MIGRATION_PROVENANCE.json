@@ -1,0 +1,250 @@
+{
+  "migration_utc": "2026-08-01T03:56:06.108293+00:00",
+  "task_id": "step28_absolute_only_no_tsq_seed45",
+  "source_kind": "v3_completed_task",
+  "source_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\dasr_tsq_end_to_end\\step28_formal\\tasks\\step28_absolute_only_no_tsq_seed45",
+  "source_v3_protocol_sha256": "1aec7ce0f6fc5773ab8b5dfcc4fd57914fc7b2a6d03f2877df42e878edb8f089",
+  "target_v4_protocol_sha256": "8151b2d563cf93fbfd99f83f3f1cd19a51a2d33009302260416c5be4c5c4ead7",
+  "source_files": {
+    "final_population.csv": {
+      "size_bytes": 65901,
+      "sha256": "e1677006de48cebad3d9ce816e10e2cc0493103d4213f85aeef4a4a42518f504"
+    },
+    "history.csv": {
+      "size_bytes": 15506,
+      "sha256": "b0030b34197a49c2283edb5515bf53755b42e33b556ec2583a4b6e420cae2a2e"
+    },
+    "integration_validation.json": {
+      "size_bytes": 2384,
+      "sha256": "299f822883b68e7ef84da61744a36394808a8b892cb2b8058344b4d909ce654e"
+    },
+    "local_mcts_errors.csv": {
+      "size_bytes": 562,
+      "sha256": "e9c7e5a3c78460d41c4190f51075a6796c5a660f2f890c969ca1416f15cc372a"
+    },
+    "local_mcts_summary.csv": {
+      "size_bytes": 3947908,
+      "sha256": "2dd78d9a60686a1d3a9da2d1b83282a765a84d3ffdda2961aabba6738ac9581f"
+    },
+    "population_gen000.csv": {
+      "size_bytes": 62675,
+      "sha256": "fd2a57ffc025130add1b6e1272b0c3c958515c11323f2cd1b508ebbbcc86c2a5"
+    },
+    "population_gen001.csv": {
+      "size_bytes": 63593,
+      "sha256": "f112a287bf87b3baa825990a80cb18e4be8c31b58276ad878eb403b490512261"
+    },
+    "population_gen002.csv": {
+      "size_bytes": 63720,
+      "sha256": "08c7a3c3bd2ba360d0f7ceb77fe4617921c439ff0abc9ca64f9bd318736471cb"
+    },
+    "population_gen003.csv": {
+      "size_bytes": 65062,
+      "sha256": "bee7f68db4ce0de238e8161b5ba1530efc5c970895053168a459568d320531ca"
+    },
+    "population_gen004.csv": {
+      "size_bytes": 65620,
+      "sha256": "b3e601830e3ce51c53d6e2ddf1f3287beef0bf59e15a2cc0f5333c0aa34de21d"
+    },
+    "population_gen005.csv": {
+      "size_bytes": 65423,
+      "sha256": "ddf7b524781b9d32f20dadca03e7d514c2ce48f80e37777881da44910c1a6151"
+    },
+    "population_gen006.csv": {
+      "size_bytes": 65352,
+      "sha256": "f934cd41733396ebca71c559d608ad1924b5e092f46b6f5b6ba5e91a86226bf9"
+    },
+    "population_gen007.csv": {
+      "size_bytes": 65465,
+      "sha256": "000afe6a294ece0056c66c55209834546e1d7e3437e913e7d930fa0d98a9ae75"
+    },
+    "population_gen008.csv": {
+      "size_bytes": 65397,
+      "sha256": "d7b45d704d7baad463b950316684b3092bb2d1efd95192a14b68aacb6eedf7a9"
+    },
+    "population_gen009.csv": {
+      "size_bytes": 65760,
+      "sha256": "6e15f776a2d41fe0309507594be431ad3d3541a1a90bc807903730e6e708a127"
+    },
+    "population_gen010.csv": {
+      "size_bytes": 65909,
+      "sha256": "4be0731c5bdbe4d587b5836e9e1cd44aed705d343ab94ca8dd861c791d30f76a"
+    },
+    "population_gen011.csv": {
+      "size_bytes": 66014,
+      "sha256": "5f556a4db3f22a227eeac72d84d7c8ebccb179806bcfed2d3c0fa67eb0b9f086"
+    },
+    "population_gen012.csv": {
+      "size_bytes": 65918,
+      "sha256": "5c49566e06edd8b4a7ac36aff05a10f8dde5caaac9584a021020ebc96847a0d3"
+    },
+    "population_gen013.csv": {
+      "size_bytes": 66233,
+      "sha256": "2da71090fe4710815da7f6cadef7e9b888744c621259334951df3523bddfaadd"
+    },
+    "population_gen014.csv": {
+      "size_bytes": 66316,
+      "sha256": "61960135b630686a52fafe2d86cfbc54bba5da644f8ea5d63157291e927ff047"
+    },
+    "population_gen015.csv": {
+      "size_bytes": 66215,
+      "sha256": "58616c35d186ed83ed0c76642ff5b8d08eea19b7ac340523a2bacd4551bfe99c"
+    },
+    "population_gen016.csv": {
+      "size_bytes": 66503,
+      "sha256": "4c9f6ed096b64bc4cb1de445cb63d0519b10488496c0cf8d9da5e5c26598be3d"
+    },
+    "population_gen017.csv": {
+      "size_bytes": 66306,
+      "sha256": "51b5e360fe650bf1df517cf6f14650c11d227817618641d75b1027046a60c5df"
+    },
+    "population_gen018.csv": {
+      "size_bytes": 66395,
+      "sha256": "e582b89e9dea6322ced652922a1a885295484f5904b9b05007033057a492c018"
+    },
+    "population_gen019.csv": {
+      "size_bytes": 66569,
+      "sha256": "94bec447e9296f874f1b3b2bcb21b06808adc379b3a91d6dfaec87c222fb1495"
+    },
+    "population_gen020.csv": {
+      "size_bytes": 66853,
+      "sha256": "7d3416c22b8e2767364fcc393d9fe08f8d07d1c4cb9eb75c0eda391640b6979d"
+    },
+    "population_gen021.csv": {
+      "size_bytes": 66704,
+      "sha256": "71b3950a5281333ad7ef704bc60091c6462fbea137c4ed075d9a664e4535e17e"
+    },
+    "population_gen022.csv": {
+      "size_bytes": 66924,
+      "sha256": "4b6c6e51be7b061114d57776e4c5c4150e39f1f156a219417097ba2e8681a35b"
+    },
+    "population_gen023.csv": {
+      "size_bytes": 66715,
+      "sha256": "d079cf69db6a89a0770fae5b190b969f5c01bb739fca96146407de6081ae3346"
+    },
+    "population_gen024.csv": {
+      "size_bytes": 66587,
+      "sha256": "0dd61f433f9fd41cf970714870d8845dec035e64ea2820b13bec7c011e213d8f"
+    },
+    "population_gen025.csv": {
+      "size_bytes": 66771,
+      "sha256": "0ec4c22c28c7afab6db2b11523b75d63b62053235acd99d94173ba9a5c9a01bf"
+    },
+    "population_gen026.csv": {
+      "size_bytes": 66796,
+      "sha256": "a582c61a2c81aae6cc590bc9901de539d2f0a946873b91d6b470c8081879306c"
+    },
+    "population_gen027.csv": {
+      "size_bytes": 66555,
+      "sha256": "c27a99ff8e2d5bf8207dd072c4abfeb77d577c5718927b31b22919e96d5fee67"
+    },
+    "population_gen028.csv": {
+      "size_bytes": 66408,
+      "sha256": "950bed4af97a29deef5fd57f22ba10c6e7c09e62d261b4b5ff90cb1026f8e645"
+    },
+    "population_gen029.csv": {
+      "size_bytes": 66625,
+      "sha256": "cdd3e23eeae69b30eb48f3cf47af44971e34e6c41a36250aa105339df588c716"
+    },
+    "population_gen030.csv": {
+      "size_bytes": 66769,
+      "sha256": "7e734248be820fad59ac2cab319bd02fe0b3fc4eb4d2e5b9ad4c3471693dd17a"
+    },
+    "population_gen031.csv": {
+      "size_bytes": 66727,
+      "sha256": "9788371bd39f0797e0658406fe02fd7659cbcf139b57c16e76c330a908c297c2"
+    },
+    "population_gen032.csv": {
+      "size_bytes": 66704,
+      "sha256": "4f87cb62e0d270e71b36bcc5898bcef178306f4d49f8a79600ce666ea83a68c5"
+    },
+    "population_gen033.csv": {
+      "size_bytes": 66513,
+      "sha256": "e7889220d4fa486cf80862b123e0ee8dbad43d261e3ced9300050fa511e117ea"
+    },
+    "population_gen034.csv": {
+      "size_bytes": 66696,
+      "sha256": "f12ce8f8711d0e7223fba23283267d1cc88faa88291af5216e3f97666a7b6015"
+    },
+    "population_gen035.csv": {
+      "size_bytes": 66854,
+      "sha256": "1e57de6113933daabca7d04cbc973937d86450af6ba62ae76b9d2b0848b84531"
+    },
+    "population_gen036.csv": {
+      "size_bytes": 66831,
+      "sha256": "8106a92502798e4962c79febda59402ccef4622a35d1b8a19fd21dba7b6da01e"
+    },
+    "population_gen037.csv": {
+      "size_bytes": 66440,
+      "sha256": "55a7083003321cb3e05e4eb1c731dfa0c805ff3165e468858d2952f2e66ee333"
+    },
+    "population_gen038.csv": {
+      "size_bytes": 66638,
+      "sha256": "b59850344374e5d2afc944db2c98cb800997b8c7c334e971497f67fb8d2bc049"
+    },
+    "population_gen039.csv": {
+      "size_bytes": 66879,
+      "sha256": "fe47c8c2d781b58b7c5d35f44ad80ff39f569bd1326b1924d7d064d53e06cff7"
+    },
+    "population_gen040.csv": {
+      "size_bytes": 66466,
+      "sha256": "bbb497999edacb8ae3a94de9912780ffd0f274d2436bb5b6bf913bda8dffe444"
+    },
+    "population_gen041.csv": {
+      "size_bytes": 66747,
+      "sha256": "4f230e85f04d9fb6a03b28705f174f1fb737e2832c7f5db723143f7e24c14613"
+    },
+    "population_gen042.csv": {
+      "size_bytes": 66583,
+      "sha256": "d1568e2f38b9b9684f29d1e128bf4254eccc60f15c857261b843a486af55153f"
+    },
+    "population_gen043.csv": {
+      "size_bytes": 66654,
+      "sha256": "ea48eb1e8c1ee603ab29b66206ef16e21498127666556dcd894fc5c52bed089b"
+    },
+    "population_gen044.csv": {
+      "size_bytes": 66450,
+      "sha256": "71966b132d4958f187886c2a4ce84a00a36773529b2acfad2d922f40d929b84b"
+    },
+    "population_gen045.csv": {
+      "size_bytes": 66525,
+      "sha256": "11080c2483bb8f6da3b1c7ad8952c7e5941f15d500d83cca2262a29d2dc1299b"
+    },
+    "population_gen046.csv": {
+      "size_bytes": 66433,
+      "sha256": "d917ce120b8753d6c40ca4e267b21c9a5f43907fb029cec557eb4ad9d59e0173"
+    },
+    "population_gen047.csv": {
+      "size_bytes": 66696,
+      "sha256": "1162b2284263a95e302efe9985f1939f1d11b453c6da5297c711fcbcb254a6d7"
+    },
+    "population_gen048.csv": {
+      "size_bytes": 66599,
+      "sha256": "40eb05b8a3a7c70c5e7ad75ca3700a6f288e84938129ded84b66e111e66e0c6b"
+    },
+    "population_gen049.csv": {
+      "size_bytes": 66406,
+      "sha256": "5f293232219b2276973ee1ce280a63c6bfba6a133381b446268f6d8d650d0bce"
+    },
+    "population_initial.csv": {
+      "size_bytes": 60803,
+      "sha256": "e75ef01194bf6bde28aa354abd5a883a3bf982a7529608fd4842fd5406f43cde"
+    },
+    "run_metadata.json": {
+      "size_bytes": 7455,
+      "sha256": "6071e5c58668e4eaea9b19fdbaf8c0b2429cabff6ca3e9f83118cf42b2af9848"
+    },
+    "task_audit.json": {
+      "size_bytes": 388,
+      "sha256": "3fa326104ea01e7c5257e63e3814150e57a6483e76a92a3f629c25110e860dae"
+    },
+    "TASK_COMPLETED.json": {
+      "size_bytes": 9094,
+      "sha256": "f815522536df376594145d02c0081524b71e5cde73555bb4a497d854a5a2a425"
+    }
+  },
+  "copied_failure_records": [],
+  "scientific_engine_reexecuted": false,
+  "scientific_output_files_modified": false,
+  "migration_reason": "The v4 amendment changes only formal acceptance and provenance rules; the scientific engine is unchanged. Source outputs are copied byte-for-byte and independently re-audited."
+}

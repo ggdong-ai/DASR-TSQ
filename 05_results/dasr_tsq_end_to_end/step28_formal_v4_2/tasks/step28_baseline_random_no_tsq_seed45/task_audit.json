@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_baseline_random_no_tsq_seed45",
+  "variant": "baseline_random_no_tsq",
+  "seed": 45,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "budget_semantics": "maximum unique oracle calls per local MCTS, including the root",
+  "exact_local_budget_rate": 0.9965,
+  "early_termination_count": 35,
+  "early_termination_rate": 0.0035,
+  "minimum_local_oracle_requests": 9,
+  "maximum_local_oracle_requests": 101,
+  "termination_reason_counts": {
+    "oracle_budget_reached": 9965,
+    "search_space_exhausted_or_stagnant": 35
+  },
+  "oracle_request_count_distribution": {
+    "9": 34,
+    "63": 1,
+    "101": 9965
+  },
+  "full_K32_rate": 0.858643513915706,
+  "more_than_B8_rate": 0.9487266121719906,
+  "elapsed_seconds": 16466.094296216965,
+  "migrated_from_v3": true,
+  "migration_source_kind": "v3_completed_staging_after_audit_failure",
+  "source_v3_protocol_sha256": "1aec7ce0f6fc5773ab8b5dfcc4fd57914fc7b2a6d03f2877df42e878edb8f089"
+}

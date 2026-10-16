@@ -1,0 +1,164 @@
+{
+  "scientific_status": "Step 28 v2 smoke/pilot: primary 2x2 plus Absolute-child strong comparators",
+  "evolution_config": {
+    "pop_size": 200,
+    "generations": 50,
+    "offspring_multiplier": 1.0,
+    "tournament_k": 5,
+    "max_per_scaffold": 10,
+    "random_seed": 44,
+    "output_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\dasr_tsq_end_to_end\\step28_formal_v4_2\\.staging\\step28_tsq_only_random_tsq10_seed44.__building__.24452",
+    "experiment_name": "step28_formal_end_to_end",
+    "run_id": "step28_tsq_only_random_tsq10_seed44",
+    "n_jobs": 5,
+    "variant_name": "tsq_only_random_tsq10",
+    "allocation_policy": "random_8",
+    "tsq_enabled": true,
+    "tsq_quota": 10,
+    "local_oracle_budget": 101,
+    "local_max_depth": 5,
+    "raw_candidate_pool_size": 32,
+    "oracle_child_budget": 8,
+    "top_ranked_count": 6,
+    "random_exploration_count": 2,
+    "max_tree_policy_steps": 3000,
+    "max_stagnant_steps": 100,
+    "freeze_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\06_paper\\experiment_records\\dasr_p0_safe_v2_test_lock",
+    "device": "cpu",
+    "save_local_evaluated_smiles": false
+  },
+  "variant_definition": {
+    "allocation_policy": "random_8",
+    "tsq_enabled": true,
+    "analysis_role": "primary_2x2",
+    "scientific_role": "2x2 TSQ main-effect arm: random allocation, TSQ quota=10"
+  },
+  "frozen_ranker_metadata": {
+    "freeze_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\06_paper\\experiment_records\\dasr_p0_safe_v2_test_lock",
+    "device": "cpu",
+    "supported_rankers": [
+      "action_only",
+      "absolute_child",
+      "pointwise_delta",
+      "pairwise_ranker",
+      "listwise_ranker"
+    ],
+    "morgan_radius": 3,
+    "morgan_fp_size": 1024,
+    "action_vocab": [
+      "attach_amino_nitrogen",
+      "attach_chloro",
+      "attach_fluoro",
+      "attach_hydroxy_oxygen",
+      "attach_methyl",
+      "attach_phenyl",
+      "attach_pyridyl",
+      "double_to_single_bond",
+      "halogen_to_Br",
+      "halogen_to_Cl",
+      "halogen_to_F",
+      "single_to_double_bond",
+      "__UNK__"
+    ],
+    "file_hashes": {
+      "action_only.json": "7c1a87ed93eede74fc76129b3f836f5aaf26bf24d5009c33d390794eff6b07db",
+      "absolute_child.pt": "de27c79dc24e79a031acd73ec023d8493c7a1fc7473055a1358d6a56d7dbd273",
+      "pointwise_delta.pt": "a7ca2032521ca48229d9f38ffcaebff73b8ca7b0ed3a1dba844fec3c70e2b5c9",
+      "pairwise_ranker.pt": "fa2fc232084acad5534ff81545fc7395ad7eac374d11d235772155d37e6500fa",
+      "listwise_ranker.pt": "c4b2a6ad1913d7ff57ad1b5c9532820d822ad29fc8e054c9fe44f5a589349df1"
+    },
+    "fingerprint_cache_size": 0,
+    "score_cache_size": 0,
+    "scientific_role": "frozen pre-oracle candidate rankers; no training or oracle scoring"
+  },
+  "outer_fitness_metadata": {
+    "scoring_function_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\10_fitness_function.py",
+    "fitness_metadata": {
+      "primary_profile": "activity_primary",
+      "reward_config": {
+        "profile_name": "activity_primary",
+        "activity_lower_pic50": 5.0,
+        "activity_upper_pic50": 8.0,
+        "weight_dual_activity": 0.6,
+        "weight_qed": 0.2,
+        "weight_sa": 0.2
+      },
+      "sensitivity_profiles": {
+        "activity_primary": {
+          "weight_dual_activity": 0.6,
+          "weight_qed": 0.2,
+          "weight_sa": 0.2,
+          "rationale": "Primary profile. Dual-target activity is the main objective, while QED and SA remain explicit soft constraints."
+        },
+        "activity_strict": {
+          "weight_dual_activity": 0.7,
+          "weight_qed": 0.15,
+          "weight_sa": 0.15,
+          "rationale": "Sensitivity profile with stronger pressure on dual-target activity."
+        },
+        "balanced": {
+          "weight_dual_activity": 0.5,
+          "weight_qed": 0.25,
+          "weight_sa": 0.25,
+          "rationale": "Sensitivity profile balancing activity, drug-likeness and accessibility."
+        }
+      },
+      "reward_formula": {
+        "dual_min_pic50": "min(pred_gsk3b_pic50, pred_jnk3_pic50)",
+        "dual_activity_reward": "clip((dual_min_pic50 - activity_lower_pic50) / (activity_upper_pic50 - activity_lower_pic50), 0, 1)",
+        "sa_reward": "clip((10 - SA_score) / 9, 0, 1)",
+        "final_reward": "weight_dual_activity * dual_activity_reward + weight_qed * QED + weight_sa * SA_reward"
+      },
+      "primary_reward_interpretation": "The primary profile is activity-centered because the main manuscript objective is dual-target GSK3β/JNK3 molecular core. QED and SA are retained as soft constraints.",
+      "qed_source": "RDKit QED implementation",
+      "sa_score_source": "Ertl-Schuffenhauer synthetic accessibility score",
+      "sa_module": {
+        "fpscores_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\scoring\\fpscores.pkl\\myZip.pkl",
+        "sa_score_range": "1.0 easy to synthesize; 10.0 difficult to synthesize",
+        "sa_reward_formula": "SA_reward = clip((10 - SA_score) / 9, 0, 1)"
+      },
+      "oracle_predictor": {
+        "gsk3b_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_gsk3b_rf_oracle.joblib",
+        "jnk3_oracle_path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\03_models\\final_oracles\\final_jnk3_rf_oracle.joblib",
+        "molecular_representation": {
+          "type": "Morgan bit fingerprint",
+          "radius": 3,
+          "n_bits": 1024
+        }
+      },
+      "p_success_policy": {
+        "used_in_main_pipeline": false,
+        "reason": "The legacy P_success model was trained on old combined_training_data.csv and old labels. It is not used in the main pipeline to avoid inconsistency and potential leakage. It may be redesigned later as an ablation module using current frozen data and validation."
+      }
+    },
+    "cache_size": 6301,
+    "step28_counting": {
+      "requests": 30200,
+      "model_evaluations": 6301,
+      "cache_hits": 23899,
+      "unique_process_local_keys": 6301
+    }
+  },
+  "software_environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "D:\\pycharm\\project\\tsq_mcts_rebuild\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel",
+    "packages": {
+      "numpy": "2.4.6",
+      "pandas": "3.0.3",
+      "rdkit": "2026.3.3",
+      "torch": "2.12.1",
+      "scikit-learn": "1.9.0",
+      "joblib": "1.5.3"
+    }
+  },
+  "code_hashes": {
+    "step14_outer": "a4165d393bc1b3c2ef916e5bca23ed56088b4ff911c392e32f3dbb34e31ee082",
+    "step27_ranker_loader": "c7991ec589db1a343b6ba05818855655f44b1db50fe8ebca6be6cd75451e9447",
+    "step27_dasr_mcts": "175a7804b1342b53d76412104459d542d1dc581b9b40b462e41c3e9d22a5d182",
+    "step28_integration": "836f37a1cbef5b97e6bebeed9893039536829bef96089011c86c208ca7a08431"
+  },
+  "isolation_note": "Legacy P_success is disabled in every arm. The primary 2x2 factors are pre-oracle allocation (Random-8 vs frozen Listwise 6+2) and TSQ environmental-selection quota (disabled vs 10). Absolute-child arms are prespecified secondary strong comparators and are excluded from the 2x2 interaction test."
+}

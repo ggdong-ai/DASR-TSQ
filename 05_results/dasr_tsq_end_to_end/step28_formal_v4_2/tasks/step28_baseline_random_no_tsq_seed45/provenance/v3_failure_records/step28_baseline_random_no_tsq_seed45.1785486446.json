@@ -1,0 +1,6 @@
+{
+  "task_id": "step28_baseline_random_no_tsq_seed45",
+  "time_utc": "2026-07-31T08:27:26.033480+00:00",
+  "error": "RuntimeError: Task audit failed: step28_baseline_random_no_tsq_seed45: ['local_budget_not_exact', 'termination_reason_mismatch']",
+  "traceback": "Traceback (most recent call last):\n  File \"D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\core\\28_dasr_tsq\\28_4_run_end_to_end_formal.py\", line 380, in run_formal\n    result = execute_task(task, protocol, p0, output, protocol_sha, smoke=False)\n  File \"D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\core\\28_dasr_tsq\\28_4_run_end_to_end_formal.py\", line 291, in execute_task\n    raise RuntimeError(f\"Task audit failed: {task_id}: {audit['critical_errors']}\")\nRuntimeError: Task audit failed: step28_baseline_random_no_tsq_seed45: ['local_budget_not_exact', 'termination_reason_mismatch']\n"
+}

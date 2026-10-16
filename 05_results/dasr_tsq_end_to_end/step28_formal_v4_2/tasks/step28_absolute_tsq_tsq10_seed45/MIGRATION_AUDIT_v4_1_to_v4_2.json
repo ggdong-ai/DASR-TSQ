@@ -1,0 +1,39 @@
+{
+  "migration_type": "audit_only_code_amendment",
+  "task_id": "step28_absolute_tsq_tsq10_seed45",
+  "variant": "absolute_tsq_tsq10",
+  "seed": 45,
+  "migrated_utc": "2026-08-03T03:55:14.479179+00:00",
+  "source_task_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\05_results\\dasr_tsq_end_to_end\\step28_formal_v4_1\\tasks\\step28_absolute_tsq_tsq10_seed45",
+  "source_protocol_sha256": "8151b2d563cf93fbfd99f83f3f1cd19a51a2d33009302260416c5be4c5c4ead7",
+  "target_protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+  "source_task_marker_sha256": "abe31a52db1d99387a2737a93ce18c3fdc4b243ee1785790215a383b9d36d381",
+  "source_files_verified_against_old_marker": true,
+  "v4_2_reaudit_passed": true,
+  "v4_2_reaudit": {
+    "passed": true,
+    "critical_errors": [],
+    "task_id": "step28_absolute_tsq_tsq10_seed45",
+    "variant": "absolute_tsq_tsq10",
+    "seed": 45,
+    "expected_local_searches": 10000,
+    "observed_local_searches": 10000,
+    "budget_semantics": "maximum unique oracle calls per local MCTS, including the root",
+    "exact_local_budget_rate": 1.0,
+    "early_termination_count": 0,
+    "early_termination_rate": 0.0,
+    "minimum_local_oracle_requests": 101,
+    "maximum_local_oracle_requests": 101,
+    "termination_reason_counts": {
+      "oracle_budget_reached": 10000
+    },
+    "oracle_request_count_distribution": {
+      "101": 10000
+    },
+    "full_K32_rate": 0.7596119004389046,
+    "more_than_B8_rate": 0.9434519100661255
+  },
+  "scientific_search_outputs_modified": false,
+  "reason": "v4.2 changes only candidate-score audit handling for zero-candidate events and formal-runner fail-fast behavior; this completed v4.1 task was hash-verified and passed the complete v4.2 audit before migration.",
+  "old_marker_protocol_sha256": "8151b2d563cf93fbfd99f83f3f1cd19a51a2d33009302260416c5be4c5c4ead7"
+}

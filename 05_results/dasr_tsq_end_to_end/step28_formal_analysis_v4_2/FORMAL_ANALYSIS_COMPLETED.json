@@ -1,0 +1,113 @@
+{
+  "completed": true,
+  "completed_utc": "2026-08-15T10:07:01.419940+00:00",
+  "protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+  "decision": {
+    "technical_analysis_passed": true,
+    "protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+    "n_runs": 30,
+    "n_seeds": 5,
+    "n_variants": 6,
+    "primary_endpoint": "auc_top10_mean_final_reward",
+    "dasr_main_directional_support": true,
+    "complete_method_directional_support": true,
+    "tsq_pressure_present": true,
+    "conventional_significance_warning": "n=5; the minimum attainable exact two-sided sign-flip p-value is 0.0625. Interpret effect sizes and direction consistency, not p<0.05.",
+    "scientific_boundary": "Step 28 supports end-to-end transfer of the Step 27-selected method. It does not reopen ranker selection and does not by itself establish universal multi-task superiority.",
+    "budget_semantics": "maximum number of unique oracle calls per local MCTS, including the root",
+    "total_early_terminations": 218,
+    "overall_early_termination_rate": 0.0007266666666666667
+  },
+  "elapsed_seconds": 154.68445467948914,
+  "files": {
+    "formal_analysis_report.md": {
+      "size_bytes": 1091,
+      "sha256": "36af665f669718d28859142cbe8a1ba70c4d9c6b9a357929f5e5176b28957ad3"
+    },
+    "formal_best_reward_trajectory.pdf": {
+      "size_bytes": 31707,
+      "sha256": "25bc2583e3a9a075859beb58b8603d77c50c0211bb5e0280dbe9536c0004f0aa"
+    },
+    "formal_best_reward_trajectory.png": {
+      "size_bytes": 336273,
+      "sha256": "74779e9f843db319db660424b89eb269e2d0df19b6d1e5ea3271c43035e59609"
+    },
+    "formal_best_reward_trajectory.svg": {
+      "size_bytes": 21823,
+      "sha256": "fb84180bf6fe726ff3e9e184293ae744f713d31ecf120d38855ede12e5993afe"
+    },
+    "formal_end_to_end_decision.json": {
+      "size_bytes": 936,
+      "sha256": "4fbf818a1f5a5f86bdcb70570e992d13ca906ef6e715cbe41fb591fa9980977a"
+    },
+    "formal_generation_trajectory.csv.gz": {
+      "size_bytes": 70072,
+      "sha256": "da914162748e37f1e1a4f5dc49833c8b4967505ea1122695b5023b2148baace9"
+    },
+    "formal_paired_seed_effects.csv": {
+      "size_bytes": 10962,
+      "sha256": "482dd157612bcf2732ee7f7f00c591fa1b67dbef7735722adc7b81a2b9b2c27a"
+    },
+    "formal_pareto_coverage.csv": {
+      "size_bytes": 1791,
+      "sha256": "487574423abe88cc0782d2a18abb60405af9785cbc7942347b91433b30927819"
+    },
+    "formal_pareto_front_trajectory.pdf": {
+      "size_bytes": 32190,
+      "sha256": "a0aa10d781d48ac0fb26e2fab463f598804fb98ca9f4e4f2a67214adf340cab0"
+    },
+    "formal_pareto_front_trajectory.png": {
+      "size_bytes": 411434,
+      "sha256": "24ee7c424d6b71fa1d6b91eae8651cc223f53e50b770b631da0d0ceccfd0943b"
+    },
+    "formal_pareto_front_trajectory.svg": {
+      "size_bytes": 21152,
+      "sha256": "9b50739cd4354789dd501bece21408d7c11a8409c11e5fdf5abe475bf8046693"
+    },
+    "formal_primary_effect_forest.pdf": {
+      "size_bytes": 29700,
+      "sha256": "406f976343ce05504abd7520d0ca75e1702df94bc9d62d016edcbda68f1dd645"
+    },
+    "formal_primary_effect_forest.png": {
+      "size_bytes": 216661,
+      "sha256": "805a8b94901c2465e4ec235fc1182e57bfc3f16de2be1805517bec35988a6850"
+    },
+    "formal_primary_effect_forest.svg": {
+      "size_bytes": 14952,
+      "sha256": "d488e794ab4ab19a89caf1c147fe873f0b382c530635fedc944b2f4a5c822785"
+    },
+    "formal_quality_diversity.pdf": {
+      "size_bytes": 32502,
+      "sha256": "6ae8fa9ab7fa4abbfbaf60de513ec813b8fdc5c81c0bb73a6ae45a5df66967fe"
+    },
+    "formal_quality_diversity.png": {
+      "size_bytes": 240823,
+      "sha256": "ad0d14db69ad5c326a2676f8269685aad2f95935e306897a27e6913691ab915c"
+    },
+    "formal_quality_diversity.svg": {
+      "size_bytes": 32126,
+      "sha256": "7fcb7c906a53d7a314a7fff4eb4767fa88f50e345b9e06a8475c08898c23534a"
+    },
+    "formal_run_level_metrics.csv": {
+      "size_bytes": 11906,
+      "sha256": "1d7e56649dc854d7b3ec58ceb0a2bd840d6c16271b95946c3519daf9f0dbfbe8"
+    },
+    "formal_top10_reward_trajectory.pdf": {
+      "size_bytes": 32191,
+      "sha256": "a1cfca7c65c90cf8dbbd024e6600d870af7fc2f16f0f2b44a741205dcdc7b28a"
+    },
+    "formal_top10_reward_trajectory.png": {
+      "size_bytes": 363678,
+      "sha256": "b7c35f9c45ab3fd86045f551e7e961ef4c7c8dddef293a1581ff4496e9cd9ab9"
+    },
+    "formal_top10_reward_trajectory.svg": {
+      "size_bytes": 21770,
+      "sha256": "c3669e0afc69500410f22fcf2c69362040408b079c7bc42b76bf5b7fcd910c55"
+    },
+    "formal_variant_summary.csv": {
+      "size_bytes": 6632,
+      "sha256": "d81d6833b7bc3cf8861543621a38191149213a2a7e001a8034c70a6635f0e6db"
+    }
+  },
+  "instruction": "Freeze this directory. Do not use formal outcomes to retune Step 28."
+}

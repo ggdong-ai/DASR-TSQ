@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_absolute_tsq_tsq10_seed42",
+  "variant": "absolute_tsq_tsq10",
+  "seed": 42,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "budget_semantics": "maximum unique oracle calls per local MCTS, including the root",
+  "exact_local_budget_rate": 1.0,
+  "early_termination_count": 0,
+  "early_termination_rate": 0.0,
+  "minimum_local_oracle_requests": 101,
+  "maximum_local_oracle_requests": 101,
+  "termination_reason_counts": {
+    "oracle_budget_reached": 10000
+  },
+  "oracle_request_count_distribution": {
+    "101": 10000
+  },
+  "full_K32_rate": 0.8034380704665051,
+  "more_than_B8_rate": 0.9747145517113522,
+  "elapsed_seconds": 16387.767282247543
+}

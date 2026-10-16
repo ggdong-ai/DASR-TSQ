@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_absolute_only_no_tsq_seed45",
+  "variant": "absolute_only_no_tsq",
+  "seed": 45,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "exact_local_budget_rate": 1.0,
+  "full_K32_rate": 0.7642618223861697,
+  "more_than_B8_rate": 0.9394811259629041,
+  "elapsed_seconds": 14776.140123605728
+}

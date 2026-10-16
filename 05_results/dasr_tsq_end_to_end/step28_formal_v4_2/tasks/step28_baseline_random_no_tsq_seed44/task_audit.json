@@ -1,0 +1,24 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_baseline_random_no_tsq_seed44",
+  "variant": "baseline_random_no_tsq",
+  "seed": 44,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "budget_semantics": "maximum unique oracle calls per local MCTS, including the root",
+  "exact_local_budget_rate": 1.0,
+  "early_termination_count": 0,
+  "early_termination_rate": 0.0,
+  "minimum_local_oracle_requests": 101,
+  "maximum_local_oracle_requests": 101,
+  "termination_reason_counts": {
+    "oracle_budget_reached": 10000
+  },
+  "oracle_request_count_distribution": {
+    "101": 10000
+  },
+  "full_K32_rate": 0.8489246275717549,
+  "more_than_B8_rate": 0.9410268840636411,
+  "elapsed_seconds": 15315.652070045471
+}

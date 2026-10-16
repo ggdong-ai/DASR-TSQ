@@ -1,0 +1,16 @@
+{
+  "technical_analysis_passed": true,
+  "protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+  "n_runs": 30,
+  "n_seeds": 5,
+  "n_variants": 6,
+  "primary_endpoint": "auc_top10_mean_final_reward",
+  "dasr_main_directional_support": true,
+  "complete_method_directional_support": true,
+  "tsq_pressure_present": true,
+  "conventional_significance_warning": "n=5; the minimum attainable exact two-sided sign-flip p-value is 0.0625. Interpret effect sizes and direction consistency, not p<0.05.",
+  "scientific_boundary": "Step 28 supports end-to-end transfer of the Step 27-selected method. It does not reopen ranker selection and does not by itself establish universal multi-task superiority.",
+  "budget_semantics": "maximum number of unique oracle calls per local MCTS, including the root",
+  "total_early_terminations": 218,
+  "overall_early_termination_rate": 0.0007266666666666667
+}

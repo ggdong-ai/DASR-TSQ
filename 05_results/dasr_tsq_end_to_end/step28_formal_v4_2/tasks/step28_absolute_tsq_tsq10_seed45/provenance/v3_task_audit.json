@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "task_id": "step28_absolute_tsq_tsq10_seed45",
+  "variant": "absolute_tsq_tsq10",
+  "seed": 45,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "exact_local_budget_rate": 1.0,
+  "full_K32_rate": 0.7596119004389046,
+  "more_than_B8_rate": 0.9434519100661255,
+  "elapsed_seconds": 14805.934366941452
+}

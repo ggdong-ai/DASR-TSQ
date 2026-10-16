@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "critical_errors": [],
+  "warnings": [],
+  "variant_name": "baseline_random_no_tsq",
+  "allocation_policy": "random_8",
+  "tsq_enabled": false,
+  "tsq_quota": null,
+  "expected_local_searches": 10000,
+  "observed_local_searches": 10000,
+  "exact_local_oracle_budget_rate": 1.0,
+  "candidate_events_with_full_K32_rate": 0.8384900541374948,
+  "candidate_events_with_more_than_B8_rate": 0.9406916367223155,
+  "outer_fitness_counters": {
+    "requests": 30200,
+    "model_evaluations": 5905,
+    "cache_hits": 24295,
+    "unique_process_local_keys": 5905
+  },
+  "serial_local_fitness_counters": {
+    "requests": 0,
+    "model_evaluations": 0,
+    "cache_hits": 0,
+    "unique_process_local_keys": 0
+  },
+  "ranker_metadata": {
+    "freeze_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\06_paper\\experiment_records\\dasr_p0_safe_v2_test_lock",
+    "device": "cpu",
+    "supported_rankers": [
+      "action_only",
+      "absolute_child",
+      "pointwise_delta",
+      "pairwise_ranker",
+      "listwise_ranker"
+    ],
+    "morgan_radius": 3,
+    "morgan_fp_size": 1024,
+    "action_vocab": [
+      "attach_amino_nitrogen",
+      "attach_chloro",
+      "attach_fluoro",
+      "attach_hydroxy_oxygen",
+      "attach_methyl",
+      "attach_phenyl",
+      "attach_pyridyl",
+      "double_to_single_bond",
+      "halogen_to_Br",
+      "halogen_to_Cl",
+      "halogen_to_F",
+      "single_to_double_bond",
+      "__UNK__"
+    ],
+    "file_hashes": {
+      "action_only.json": "7c1a87ed93eede74fc76129b3f836f5aaf26bf24d5009c33d390794eff6b07db",
+      "absolute_child.pt": "de27c79dc24e79a031acd73ec023d8493c7a1fc7473055a1358d6a56d7dbd273",
+      "pointwise_delta.pt": "a7ca2032521ca48229d9f38ffcaebff73b8ca7b0ed3a1dba844fec3c70e2b5c9",
+      "pairwise_ranker.pt": "fa2fc232084acad5534ff81545fc7395ad7eac374d11d235772155d37e6500fa",
+      "listwise_ranker.pt": "c4b2a6ad1913d7ff57ad1b5c9532820d822ad29fc8e054c9fe44f5a589349df1"
+    },
+    "fingerprint_cache_size": 0,
+    "score_cache_size": 0,
+    "scientific_role": "frozen pre-oracle candidate rankers; no training or oracle scoring"
+  },
+  "special_scaffold_audit": {
+    "max_no_scaffold_count_per_generation": 0,
+    "total_scaffold_failed_count_across_generations": 0,
+    "total_invalid_scaffold_token_count_across_generations": 0
+  }
+}

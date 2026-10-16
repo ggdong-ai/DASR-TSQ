@@ -1,0 +1,26 @@
+{
+  "created_utc": "2026-08-03T03:55:15.881506+00:00",
+  "mode": "apply",
+  "source_protocol_sha256": "8151b2d563cf93fbfd99f83f3f1cd19a51a2d33009302260416c5be4c5c4ead7",
+  "target_protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+  "n_candidates": 6,
+  "n_audit_passed": 6,
+  "n_migrated": 6,
+  "passed": [
+    "step28_absolute_only_no_tsq_seed42",
+    "step28_absolute_only_no_tsq_seed44",
+    "step28_absolute_only_no_tsq_seed45",
+    "step28_absolute_tsq_tsq10_seed45",
+    "step28_baseline_random_no_tsq_seed45",
+    "step28_dasr_tsq_listwise_tsq10_seed43"
+  ],
+  "migrated": [
+    "step28_absolute_only_no_tsq_seed42",
+    "step28_absolute_only_no_tsq_seed44",
+    "step28_absolute_only_no_tsq_seed45",
+    "step28_absolute_tsq_tsq10_seed45",
+    "step28_baseline_random_no_tsq_seed45",
+    "step28_dasr_tsq_listwise_tsq10_seed43"
+  ],
+  "failed": {}
+}

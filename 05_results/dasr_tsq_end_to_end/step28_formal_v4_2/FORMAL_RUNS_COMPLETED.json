@@ -1,0 +1,13 @@
+{
+  "completed": true,
+  "completed_utc": "2026-08-07T13:19:54.972815+00:00",
+  "protocol_sha256": "48974a63e13986423f337ab1b2a8f34b07c8e532f5b582453495272058125da6",
+  "n_tasks": 30,
+  "n_variants": 6,
+  "n_seeds": 5,
+  "population": 200,
+  "generations": 50,
+  "local_oracle_budget": 101,
+  "budget_semantics": "maximum number of unique oracle calls per local MCTS, including the root",
+  "next_action": "Run 28_5_analyze_end_to_end_formal_v4_1.py"
+}
