@@ -1,0 +1,60 @@
+{
+  "primary_evaluation": "5-fold Bemis-Murcko scaffold-group cross-validation",
+  "secondary_evaluation": "5-fold stratified random cross-validation",
+  "outer_folds": 5,
+  "random_seed": 42,
+  "stratification": "five quantile bins of pic50_median; fallback to active_label_6_0",
+  "similarity_audit": {
+    "fingerprint": "Morgan bit fingerprint",
+    "radius": 3,
+    "fp_size": 1024,
+    "metric": "Tanimoto",
+    "thresholds": [
+      0.5,
+      0.7,
+      0.8,
+      0.9
+    ]
+  },
+  "nested_cv_rule": "Outer test folds must never be used for feature selection, hyperparameter optimization, early stopping, threshold selection, or model selection. Use inner CV only within the outer-training data.",
+  "input_files": {
+    "gsk3b": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\clean\\gsk3b_modeling_dataset.csv",
+      "sha256": "ce52c11bda1a3fd95a7eb86f4eef20ddf96c8134c4fdc46a23b921b10e19a48f"
+    },
+    "jnk3": {
+      "path": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\clean\\jnk3_modeling_dataset.csv",
+      "sha256": "ec43f39543a53106c349c1b75ccd952ced42b3f289ff86933a8472859071b473"
+    }
+  },
+  "software_versions": {
+    "python": "3.14.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "scikit_learn": "1.9.0",
+    "rdkit": "2026.03.3"
+  },
+
+  "method_references": [
+    {
+      "topic": "Bemis-Murcko molecular frameworks",
+      "doi": "10.1021/jm9602928"
+    },
+    {
+      "topic": "MoleculeNet molecular ML benchmark",
+      "doi": "10.1039/C7SC02664A"
+    },
+    {
+      "topic": "Molecular OOD evaluation",
+      "doi": "10.1021/acs.jcim.3c01774"
+    },
+    {
+      "topic": "Similarity leakage and DataSAIL context",
+      "doi": "10.1038/s41467-025-58606-8"
+    },
+    {
+      "topic": "Limits of conventional scaffold splitting",
+      "doi": "10.1186/s13321-025-01039-8"
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "dataset_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking_p0_safe_v2",
+  "source_dataset_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking",
+  "p0_csv": "D:\\pycharm\\project\\tsq_mcts_rebuild\\04_runs\\tsq_nsga2\\P0_reference\\P0_fixed_cold_start.csv",
+  "dataset_version": "sibling_ranking_p0_safe_v2",
+  "passed": true,
+  "critical_errors": [],
+  "warnings": [],
+  "n_rows": 54708,
+  "n_parent_groups": 1714,
+  "n_manifest_parents": 2000,
+  "n_unique_parent_scaffolds": 1368,
+  "n_unique_children": 54698,
+  "group_size": {
+    "min": 11,
+    "median": 32.0,
+    "mean": 31.918319719953324,
+    "max": 32
+  },
+  "split_rows": {
+    "test": 8399,
+    "train": 37928,
+    "validation": 8381
+  },
+  "split_parent_groups": {
+    "test": 263,
+    "train": 1189,
+    "validation": 262
+  },
+  "core_integrity": {
+    "missing_columns": [],
+    "duplicate_parent_child_pairs": 0,
+    "groups_with_multiple_parents": 0,
+    "leakage_checks": {
+      "groups_crossing_splits": 0,
+      "parents_crossing_splits": 0,
+      "parent_scaffolds_crossing_splits": 0,
+      "exact_children_crossing_splits": 0
+    },
+    "group_size": {
+      "min": 11,
+      "median": 32.0,
+      "mean": 31.918319719953324,
+      "max": 32
+    },
+    "numerical_checks": {
+      "delta_final_reward_max_abs_error": 1.8127860323957634e-16,
+      "delta_dual_activity_reward_max_abs_error": 2.0816681711721685e-16,
+      "delta_qed_max_abs_error": 3.209238430557093e-16,
+      "delta_sa_reward_max_abs_error": 2.5153490401663703e-16
+    },
+    "scalar_label_mismatches": {
+      "scalar_improve_000": 0,
+      "scalar_improve_001": 0,
+      "scalar_improve_002": 0
+    },
+    "pareto_label_mismatches": 0,
+    "rank_mismatches": {
+      "rank_delta_final_reward": 0,
+      "rank_child_final_reward": 0
+    }
+  },
+  "split_file_consistency": {
+    "train": {
+      "exists": true,
+      "n_rows": 37928,
+      "expected_rows": 37928,
+      "missing_keys": 0,
+      "extra_keys": 0,
+      "duplicate_keys": 0,
+      "sha256": "ab88717b8bb263f4444f38b984bc46f7aecad32719e18b4c060f119d318a8327"
+    },
+    "validation": {
+      "exists": true,
+      "n_rows": 8381,
+      "expected_rows": 8381,
+      "missing_keys": 0,
+      "extra_keys": 0,
+      "duplicate_keys": 0,
+      "sha256": "de378ddc47d2b074d1a7246787bda9d64d69665e316d567ef805d250ce8f3a89"
+    },
+    "test": {
+      "exists": true,
+      "n_rows": 8399,
+      "expected_rows": 8399,
+      "missing_keys": 0,
+      "extra_keys": 0,
+      "duplicate_keys": 0,
+      "sha256": "0812c08341196af18f57ca090a7ff45e9ad73488180886204cc7fe8b73bf55b7"
+    },
+    "transition_pairs_duplicate_keys": 0
+  },
+  "p0_safety": {
+    "p0_smiles_column": "smiles",
+    "p0_raw_rows": 200,
+    "p0_invalid_smiles": 0,
+    "p0_unique_valid_molecules": 200,
+    "p0_unique_scaffolds": 200,
+    "p0_contains_acyclic_scaffold": false,
+    "overlap_scope": "parent_and_child",
+    "checks": {
+      "exact_parent_overlap_rows": 0,
+      "parent_scaffold_overlap_rows": 0,
+      "exact_child_overlap_rows": 0,
+      "child_scaffold_overlap_rows": 0,
+      "exact_parent_overlap_groups": 0,
+      "parent_scaffold_overlap_groups": 0,
+      "exact_child_overlap_groups": 0,
+      "child_scaffold_overlap_groups": 0
+    },
+    "online_deployment_ready": true
+  },
+  "source_partition": {
+    "source_rows": 63858,
+    "retained_rows": 54708,
+    "holdout_rows": 9150,
+    "retained_holdout_overlap_rows": 0,
+    "source_missing_from_partition": 0,
+    "partition_extra_vs_source": 0,
+    "retained_groups": 1714,
+    "holdout_groups": 286,
+    "retained_holdout_overlap_groups": 0,
+    "missing_group_audit": 0,
+    "extra_group_audit": 0,
+    "source_transition_pairs_sha256": "0067b68860584fc152d96a7f2ba29bd734eda4a79d8ed587fffb1f9a41bf5bf1",
+    "holdout_sha256": "b840b20f0d2fd65be14034b4ac369dd55ec5e13676257639bc22c48f9f9b8b18"
+  },
+  "manifest_checks": {
+    "n_manifest_rows": 2000,
+    "has_retained_flag": true,
+    "has_exclusion_flag": true,
+    "missing_retained_parents": 0,
+    "extra_retained_parents": 0
+  },
+  "label_rates": {
+    "strict_pareto_improve": 0.005099802588286905,
+    "scalar_improve_000": 0.37712948746070046,
+    "scalar_improve_001": 0.2746399064122249,
+    "scalar_improve_002": 0.19865467573298237,
+    "child_tier1": 0.0706295240184251,
+    "tier1_gain": 0.012776924764202675
+  },
+  "hashes": {
+    "transition_pairs_csv": "a5f20d4e8a7205cad321c5abeabc3c51e0ebfee9782818cc6222221f6716dd1a",
+    "train_csv": "ab88717b8bb263f4444f38b984bc46f7aecad32719e18b4c060f119d318a8327",
+    "validation_csv": "de378ddc47d2b074d1a7246787bda9d64d69665e316d567ef805d250ce8f3a89",
+    "test_csv": "0812c08341196af18f57ca090a7ff45e9ad73488180886204cc7fe8b73bf55b7",
+    "parent_manifest_csv": "f2271df9783d1a946138fb92815d8c86d4b841a6f51eb8c586afa85892fda09e",
+    "run_config_json": "997d72df3b48cb0cbc11d778739287b0dce861e9ee1a9411225a180072fddf51",
+    "validator_script": "a645483a077002a4a517832542efa27b4356fd4278d8d11750fcbc8174f19e87"
+  },
+  "test_policy": "Structural filtering and integrity validation were applied to test rows, but no model fitting, model selection or comparative test metric was performed."
+}

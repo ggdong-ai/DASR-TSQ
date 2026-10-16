@@ -1,0 +1,3 @@
+target,input_records,accepted_records,rejected_records,acceptance_rate,multi_fragment_records,unique_raw_smiles,unique_standardized_structures,unique_murcko_scaffolds
+gsk3b,4894,4891,3,0.9993870044953004,109,4094,4080,1798
+jnk3,1993,1990,3,0.9984947315604616,8,1758,1753,989

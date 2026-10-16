@@ -1,0 +1,19 @@
+target,rejection_reason,count
+gsk3b,confidence_score_not_9,1006
+gsk3b,relation_not_exact:>,887
+gsk3b,potential_duplicate_flagged,244
+gsk3b,relation_not_exact:<,42
+gsk3b,assay_type_not_B:A,40
+gsk3b,data_validity_comment_present:Outside typical range,32
+gsk3b,assay_type_not_B:F,19
+gsk3b,assay_type_not_B:T,10
+gsk3b,relation_not_exact:>=,6
+gsk3b,molecular_weight_above_800,5
+gsk3b,data_validity_comment_present:Potential transcription error,1
+jnk3,confidence_score_not_9,428
+jnk3,relation_not_exact:>,321
+jnk3,relation_not_exact:<,98
+jnk3,potential_duplicate_flagged,47
+jnk3,relation_not_exact:>=,2
+jnk3,molecular_weight_above_800,2
+jnk3,assay_type_not_B:F,2

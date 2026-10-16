@@ -1,0 +1,34 @@
+{
+  "script": "D:\\pycharm\\project\\tsq_mcts_rebuild\\02_code\\models\\23_2_build_p0_safe_sibling_dataset.py",
+  "created_at_utc": "2026-07-28T07:18:02.280560+00:00",
+  "arguments": {
+    "source_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking",
+    "output_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking_p0_safe_v2",
+    "p0_csv": "D:\\pycharm\\project\\tsq_mcts_rebuild\\04_runs\\tsq_nsga2\\P0_reference\\P0_fixed_cold_start.csv",
+    "overlap_scope": "parent_and_child",
+    "min_children": 8,
+    "allow_invalid_p0": false,
+    "overwrite": true
+  },
+  "p0_smiles_column": "smiles",
+  "p0_invalid_smiles": 0,
+  "hashes": {
+    "source_transition_pairs_csv": "0067b68860584fc152d96a7f2ba29bd734eda4a79d8ed587fffb1f9a41bf5bf1",
+    "source_validation_report_json": "cd36adedb63b96f8de6cf9a8c6b058eb5e294c576c1ac3afb23f99438ede718a",
+    "fixed_p0_csv": "9109a3df11e2f9dcbea8a526a03f3f375748b66bfcff29f0efe97faf4dd59de5",
+    "builder_script": "24582b87ae7e8a2a8cdefc862c9d845a645f912bb2d6f676b0853ac294f9bac6"
+  },
+  "software_versions": {
+    "python": "3.14.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3",
+    "rdkit": "2026.03.3"
+  },
+  "formal_policy": {
+    "group_level_filtering": true,
+    "split_reassignment": false,
+    "oracle_rescoring": false,
+    "label_based_filtering": false,
+    "recommended_overlap_scope": "parent_and_child"
+  }
+}

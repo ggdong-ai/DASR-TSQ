@@ -1,0 +1,70 @@
+{
+  "dataset_role": "P0-deployment-safe parent-conditioned sibling-ranking dataset for pre-oracle MCTS expansion",
+  "scientific_status": "structure-filtered derivative of frozen Step 23 labels; ready for validation, not yet an online MCTS result",
+  "dataset_version": "sibling_ranking_p0_safe_v2",
+  "filtering_principle": "Complete sibling groups are excluded using fixed-P0 structural overlap only; reward and label columns are not used to decide exclusion.",
+  "overlap_scope": "parent_and_child",
+  "minimum_children_per_parent": 8,
+  "source_dataset_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking",
+  "output_dataset_dir": "D:\\pycharm\\project\\tsq_mcts_rebuild\\01_data\\sibling_ranking_p0_safe_v2",
+  "fixed_p0_csv": "D:\\pycharm\\project\\tsq_mcts_rebuild\\04_runs\\tsq_nsga2\\P0_reference\\P0_fixed_cold_start.csv",
+  "fixed_p0": {
+    "unique_valid_molecules": 200,
+    "unique_scaffolds": 200,
+    "contains_acyclic_scaffold": false
+  },
+  "before_filter": {
+    "transition_rows": 63858,
+    "parent_groups": 2000,
+    "parent_scaffolds": 1574,
+    "unique_children": 63844
+  },
+  "excluded": {
+    "transition_rows": 9150,
+    "parent_groups": 286,
+    "parent_group_fraction": 0.143,
+    "group_reason_counts_nonexclusive": {
+      "child_exact_p0": 3,
+      "child_scaffold_p0": 286,
+      "parent_exact_p0": 176,
+      "parent_scaffold_p0": 270
+    },
+    "split_parent_groups": {
+      "test": 37,
+      "train": 211,
+      "validation": 38
+    }
+  },
+  "after_filter": {
+    "transition_rows": 54708,
+    "parent_groups": 1714,
+    "parent_scaffolds": 1368,
+    "unique_children": 54698,
+    "group_size": {
+      "min": 11,
+      "median": 32.0,
+      "mean": 31.918319719953324,
+      "max": 32
+    },
+    "split_rows": {
+      "test": 8399,
+      "train": 37928,
+      "validation": 8381
+    },
+    "split_parent_groups": {
+      "test": 263,
+      "train": 1189,
+      "validation": 262
+    },
+    "split_parent_scaffolds": {
+      "test": 263,
+      "train": 843,
+      "validation": 262
+    }
+  },
+  "test_policy": "The test split is filtered mechanically by the same P0 structural rule and copied without model fitting or model-selection analysis. Step 24 must not load test labels.",
+  "source_validation_report": {
+    "passed": true,
+    "sha256": "cd36adedb63b96f8de6cf9a8c6b058eb5e294c576c1ac3afb23f99438ede718a"
+  }
+}
